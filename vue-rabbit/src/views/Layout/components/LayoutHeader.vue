@@ -1,17 +1,5 @@
 <script setup>
-import { getCategoryAPI } from '@/apis/layout';
-import { onMounted, ref } from 'vue';
-
-// 获取目录
-const categoryList = ref([])
-const getCategory = async () => {
-  const res = await getCategoryAPI()
-  categoryList.value = res.result
-}
-
-onMounted(() => {
-  getCategory()
-})
+import { useRequestStore } from '@/stores/request';
 </script>
 
 <template>
@@ -24,7 +12,7 @@ onMounted(() => {
         <li class="home">
           <RouterLink to="/">首页</RouterLink>
         </li>
-        <li v-for="category in categoryList" :key="category.id">
+        <li v-for="category in useRequestStore().requestList" :key="category.id">
           <RouterLink to="/">{{category.name}}</RouterLink>
         </li>
       </ul>
