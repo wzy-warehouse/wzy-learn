@@ -1,0 +1,50 @@
+{
+  "user": {
+    "username": {
+      "placeholder": "Please enter username",
+      "text": "Username",
+      "label": "Username",
+      "rules": {
+        "required": "Username cannot be empty",
+        "min": "Username length cannot be less than {0}",
+        "max": "Username length cannot be more than {0}"
+      }
+    },
+    "password": {
+      "placeholder": "Please enter password",
+      "text": "Password",
+      "label": "Password",
+      "rules": {
+        "required": "Password cannot be empty",
+        "min": "Password length cannot be less than {0}",
+        "max": "Password length cannot be greater than {0}"
+      }
+    },
+    "confirmPassword": {
+      "placeholder": "Please confirm your password",
+      "text": "Confirm Password",
+      "label": "Confirm Password",
+      "rules": {
+        "required": "Confirm password cannot be empty",
+        "min": "Confirm password must be at least {0} characters",
+        "max": "Confirm password cannot exceed {0} characters",
+        "equalTo": "Passwords do not match"
+      }
+    },
+    "registerBtn": {
+      "text": "Register"
+    },
+    "remember": {
+      "text": "Remember Password"
+    },
+    "forget": {
+      "text": "Forgot Password"
+    },
+    "loginBtn": {
+      "text": "Login"
+    },
+    "register": {
+      "text": "Register"
+    }
+  }
+}

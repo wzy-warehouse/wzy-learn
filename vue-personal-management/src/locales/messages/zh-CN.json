@@ -1,0 +1,50 @@
+{
+    "user": {
+        "username": {
+            "placeholder": "请输入用户名",
+            "text": "用户名",
+            "label": "用户名",
+            "rules": {
+                "required": "用户名不能为空",
+                "min": "用户名长度不能小于{0}",
+                "max": "用户名长度不能大于{0}"
+            }
+        },
+        "password": {
+            "placeholder": "请输入密码",
+            "text": "密码",
+            "label": "密码",
+            "rules": {
+                "required": "密码不能为空",
+                "min": "密码长度不能小于{0}",
+                "max": "密码长度不能大于{0}"
+            }
+        },
+        "confirmPassword": {
+            "placeholder": "请输入确认密码",
+            "text": "确认密码",
+            "label": "确认密码",
+            "rules": {
+                "required": "确认密码不能为空",
+                "min": "确认密码长度不能小于{0}",
+                "max": "确认密码长度不能大于{0}",
+                "equalTo": "确认密码与密码不一致"
+            }
+        },
+        "registerBtn": {
+            "text": "注册"
+        },
+        "remember": {
+            "text": "记住密码"
+        },
+        "forget": {
+            "text": "忘记密码"
+        },
+        "loginBtn": {
+            "text": "登录"
+        },
+        "register": {
+            "text": "没有帐号？注册"
+        }
+    }
+}

@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.com.wzy.web.management.mapper.UserMapper">
+    <!-- 自定义映射规则 -->
+    <resultMap id="UserEntityMap" type="cn.com.wzy.web.management.entity.User">
+        <id column="uid" property="uid"/>
+        <result column="is_delete" property="isDelete"/>
+        <result column="create_user" property="createUser"/>
+        <result column="create_time" property="createTime"/>
+        <result column="modified_user" property="modifiedUser"/>
+        <result column="modified_time" property="modifiedTime"/>
+    </resultMap>
+
+    <!-- 插入用户的数据 -->
+    <insert id="insertUser" useGeneratedKeys="true" keyProperty="uid">
+        INSERT INTO t_user (
+            username,
+            password,
+            phone,
+            email,
+            gender,
+            is_delete,
+            create_user,
+            create_time,
+            modified_user,
+            modified_time
+        )
+        VALUES (
+            #{username},
+            #{password},
+            #{phone},
+            #{email},
+            #{gender},
+            #{isDelete},
+            #{createUser},
+            #{createTime},
+            #{modifiedUser},
+            #{modifiedTime}
+        )
+    </insert>
+
+    <!-- 根据用户名查询用户 -->
+    <select id="findByUsername" resultMap="UserEntityMap">
+        SELECT
+            uid,
+            username,
+            password,
+            phone,
+            email,
+            gender,
+            is_delete,
+            create_user,
+            create_time,
+            modified_user,
+            modified_time
+        FROM t_user
+        <where>
+            username = #{username}
+        </where>
+    </select>
+</mapper>
