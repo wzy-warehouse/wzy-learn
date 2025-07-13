@@ -18,6 +18,7 @@
         INSERT INTO t_user (
             username,
             password,
+            full_name,
             phone,
             email,
             gender,
@@ -30,6 +31,7 @@
         VALUES (
             #{username},
             #{password},
+            #{fullName},
             #{phone},
             #{email},
             #{gender},
@@ -47,6 +49,7 @@
             uid,
             username,
             password,
+            full_name,
             phone,
             email,
             gender,

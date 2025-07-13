@@ -30,11 +30,7 @@
             </el-form-item>
 
             <el-form-item justify="space-between">
-              <el-col :span="12">
-                <el-checkbox v-model="form.remember">
-                  {{ i18n('user.remember.text') }}
-                </el-checkbox>
-              </el-col>
+              <el-col :span="12"> </el-col>
               <el-col :span="12" align="right">
                 <RouterLink to="/forget_password">{{ i18n('user.forget.text') }}</RouterLink>
               </el-col>
@@ -58,11 +54,13 @@
 </template>
 
 <script setup lang="ts" name="Login">
+import { loginAPI } from '@/apis/users'
+import { useUserStore } from '@/stores/userStore'
 import type LoginInfo from '@/types/LoginInfo'
-import type { FormInstance, FormRules } from 'element-plus'
+import { ElMessage, type FormInstance, type FormRules } from 'element-plus'
 import { ref, onMounted, reactive, computed } from 'vue'
 import { useI18n } from 'vue-i18n'
-import { RouterLink } from 'vue-router'
+import { RouterLink, useRouter } from 'vue-router'
 
 // 背景图片设置
 const bgStyle = ref({})
@@ -75,7 +73,11 @@ const languageList = reactive([
   { label: 'English', value: 'en-US' },
 ])
 // 传递后端验证的登录数据
-const form: LoginInfo = reactive({ username: '', password: '', remember: false, lang: sessionStorage.getItem('user-lang') || 'zh-CN' })
+const form: LoginInfo = reactive({
+  username: '',
+  password: '',
+  lang: sessionStorage.getItem('user-lang') || 'zh-CN',
+})
 
 // 表单验证
 const ruleFormRef = ref<FormInstance>()
@@ -93,6 +95,9 @@ const rules = computed<FormRules<LoginInfo>>(() => {
     ],
   }
 })
+
+// 路由器
+const router = useRouter()
 
 // 设置随机背景
 const setRandomBg = () => {
@@ -114,6 +119,16 @@ const submitForm = async (formEl: FormInstance | undefined) => {
   await formEl.validate((valid, fields) => {
     if (valid) {
       // 登录
+      loginAPI(form).then((res) => {
+        if (res.code === 200) {
+          // 保存
+          useUserStore().saveUserInfo(res.data)
+          // 跳转到首页
+          router.replace('/home')
+        }else {
+          ElMessage.error(res.message)
+        }
+      })
     }
   })
 }

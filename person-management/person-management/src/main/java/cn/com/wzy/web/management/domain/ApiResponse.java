@@ -13,9 +13,6 @@ import java.util.Map;
 public class ApiResponse<T> implements Serializable {
     private static final long serialVersionUID = 1L;
 
-    // 静态常量
-    private static String SUCCESS = I18nCacheUtils.getMessage("return.success.text");
-
     // 状态码
     private int code;
     // 消息
@@ -45,11 +42,11 @@ public class ApiResponse<T> implements Serializable {
 
     // 成功响应的静态工厂方法
     public static <T> ApiResponse<T> success() {
-        return new ApiResponse<>(200, SUCCESS);
+        return new ApiResponse<>(200, I18nCacheUtils.getMessage("return.success.text"));
     }
 
     public static <T> ApiResponse<T> success(T data) {
-        return new ApiResponse<>(200, SUCCESS, data);
+        return new ApiResponse<>(200, I18nCacheUtils.getMessage("return.success.text"), data);
     }
 
     public static <T> ApiResponse<T> success(String message, T data) {

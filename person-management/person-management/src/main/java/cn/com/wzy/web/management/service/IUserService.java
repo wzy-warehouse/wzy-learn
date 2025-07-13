@@ -13,4 +13,18 @@ public interface IUserService {
      * @param user 用户数据对象
      */
     void register(User user);
+
+    /**
+     * 用户登录方法
+     * @param user 用户数据对象
+     * @return 用户信息
+     */
+    User login(User user);
+
+    /**
+     * 获取已经登录用户信息
+     * @param userId 用户id
+     * @return 用户信息
+     */
+    User getLoggedInUserInformation(Long userId);
 }

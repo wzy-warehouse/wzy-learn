@@ -26,13 +26,5 @@ export default defineConfig({
   },
   server: {
     port: 8888,
-    proxy: {
-      // 代理所有以/api开头的请求到后端
-      '/api': {
-        target: 'http://localhost:9999', // SpringBoot默认端口
-        changeOrigin: true,
-        rewrite: (path) => path.replace(/^\/api/, '')
-      }
-    }
   },
 })

@@ -13,6 +13,7 @@ import java.util.Objects;
 public class User extends BaseEntity implements Serializable {
     private Long uid;
     private String username;
+    private String fullName;
     private String password;
     private String phone;
     private String email;
@@ -35,6 +36,14 @@ public class User extends BaseEntity implements Serializable {
 
     public void setUsername(String username) {
         this.username = username;
+    }
+
+    public String getFullName() {
+        return fullName;
+    }
+
+    public void setFullName(String fullName) {
+        this.fullName = fullName;
     }
 
     public String getPassword() {
@@ -91,12 +100,12 @@ public class User extends BaseEntity implements Serializable {
         if (o == null || getClass() != o.getClass()) return false;
         if (!super.equals(o)) return false;
         User user = (User) o;
-        return Objects.equals(uid, user.uid) && Objects.equals(username, user.username) && Objects.equals(password, user.password) && Objects.equals(phone, user.phone) && Objects.equals(email, user.email) && gender == user.gender && Objects.equals(isDelete, user.isDelete) && Objects.equals(lang, user.lang);
+        return Objects.equals(uid, user.uid) && Objects.equals(username, user.username) && Objects.equals(fullName, user.fullName) && Objects.equals(password, user.password) && Objects.equals(phone, user.phone) && Objects.equals(email, user.email) && gender == user.gender && Objects.equals(isDelete, user.isDelete) && Objects.equals(lang, user.lang);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(super.hashCode(), uid, username, password, phone, email, gender, isDelete, lang);
+        return Objects.hash(super.hashCode(), uid, username, fullName, password, phone, email, gender, isDelete, lang);
     }
 
     @Override
@@ -104,6 +113,7 @@ public class User extends BaseEntity implements Serializable {
         return "User{" +
                 "uid=" + uid +
                 ", username='" + username + '\'' +
+                ", fullName='" + fullName + '\'' +
                 ", password='" + password + '\'' +
                 ", phone='" + phone + '\'' +
                 ", email='" + email + '\'' +

@@ -1,6 +1,5 @@
 export default interface UserInfo {
-    id: number;
+    uid: number;
     username: string;
-    loginName: string;
-    isLogin: boolean;
+    fullName: string
 }

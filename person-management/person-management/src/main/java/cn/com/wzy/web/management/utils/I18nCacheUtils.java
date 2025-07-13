@@ -4,7 +4,6 @@ import com.github.benmanes.caffeine.cache.CacheLoader;
 import com.github.benmanes.caffeine.cache.Caffeine;
 import com.github.benmanes.caffeine.cache.LoadingCache;
 import org.springframework.core.io.ClassPathResource;
-import org.springframework.core.io.Resource;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -62,6 +61,9 @@ public class I18nCacheUtils {
         } else {
             LOCALE_CONTEXT.set(Locale.CHINA); // 解析失败时使用默认值
         }
+
+        // 刷新语言缓存
+        refreshCache(LOCALE_CONTEXT.get());
     }
 
     /**
