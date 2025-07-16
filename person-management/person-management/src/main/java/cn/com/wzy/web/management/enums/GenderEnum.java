@@ -1,8 +1,10 @@
 package cn.com.wzy.web.management.enums;
 
+import cn.com.wzy.web.management.utils.I18nCacheUtils;
+
 public enum GenderEnum {
-    MALE("男"),
-    FEMALE("女");
+    MALE(I18nCacheUtils.getMessage("user.gender.male.text")),
+    FEMALE(I18nCacheUtils.getMessage("user.gender.female.text"));
 
     private String gender;
 

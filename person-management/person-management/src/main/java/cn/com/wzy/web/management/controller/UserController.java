@@ -44,7 +44,7 @@ public class UserController extends BaseController {
         User res = userService.login(user);
 
         // sa-token记录登录
-        StpUtil.login(res.getUid());
+        StpUtil.login(res.getid());
         return ApiResponse.success(res);
     }
 

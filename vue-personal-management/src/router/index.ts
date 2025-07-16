@@ -6,6 +6,9 @@ import Home from '@/views/Home/index.vue'
 import { checkLoginAPI } from '@/apis/users'
 import { useUserStore } from '@/stores/userStore'
 import type ReturnType from '@/types/Return'
+import Layout from '@/views/Home/Layout/index.vue'
+import Users from '@/views/Home/Users/index.vue'
+import Xinzhou from '@/views/Home/Wether/ShanXi/Xinzhou/index.vue'
 
 const router = createRouter({
   history: createWebHistory(),
@@ -37,6 +40,36 @@ const router = createRouter({
       path: '/home',
       component: Home,
       meta: { requiresAuth: true }, // 需要登录
+      children: [
+        {
+          path: '',
+          component: Layout,
+        },
+        {
+          name: 'layout',
+          path: 'layout',
+          component: Layout,
+          meta: {
+            requiresAuth: true, // 需要登录
+          },
+        },
+        {
+          name: 'user',
+          path: 'user',
+          component: Users,
+          meta: {
+            requiresAuth: true, // 需要登录
+          },
+        },
+        {
+          path: 'wether/shanxi/xinzhou',
+          name: 'wether',
+          component: Xinzhou,
+          meta: {
+            requiresAuth: true, // 需要登录
+          },
+        },
+      ],
     },
   ],
 })

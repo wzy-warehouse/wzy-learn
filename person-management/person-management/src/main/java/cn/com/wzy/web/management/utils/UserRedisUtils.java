@@ -32,7 +32,7 @@ public class UserRedisUtils {
      * @param expireSeconds 有效期，单位秒
      */
     public void saveUser(User userInfo, int expireSeconds) {
-        if (userInfo.getUid() == null || userInfo.getUid() == null) {
+        if (userInfo.getid() == null || userInfo.getid() == null) {
             throw new IllegalArgumentException("用户ID不能为空");
         }
 
@@ -40,7 +40,7 @@ public class UserRedisUtils {
         long actualExpire = Math.min(expireSeconds, MAX_EXPIRE_SECONDS);
 
         // 构建Redis键
-        String key = buildUserKey(userInfo.getUid().toString());
+        String key = buildUserKey(userInfo.getid().toString());
 
         // 存储数据
         redisTemplate.opsForValue().set(key, userInfo, actualExpire, TimeUnit.SECONDS);

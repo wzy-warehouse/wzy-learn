@@ -237,4 +237,16 @@ public class I18nCacheUtils {
             return pattern;
         }
     }
+
+    /**
+     * 获取当前语言
+     * @param splicingSymbols 连接符，默认为-
+     * @return
+     */
+    public static String getCurrentLanguage(String splicingSymbols) {
+        splicingSymbols = splicingSymbols == null ? "-" : splicingSymbols;
+        return LOCALE_CONTEXT.get().getLanguage() +
+                splicingSymbols +
+                LOCALE_CONTEXT.get().getCountry();
+    }
 }

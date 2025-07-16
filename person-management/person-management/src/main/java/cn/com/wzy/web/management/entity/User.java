@@ -11,7 +11,8 @@ import java.util.Objects;
  * @date 2025/7/11 下午7:45
  */
 public class User extends BaseEntity implements Serializable {
-    private Long uid;
+    private Long id;
+    private Integer deptId;
     private String username;
     private String fullName;
     private String password;
@@ -22,12 +23,20 @@ public class User extends BaseEntity implements Serializable {
 
     private String lang;
 
-    public Long getUid() {
-        return uid;
+    public Long getid() {
+        return id;
     }
 
-    public void setUid(Long uid) {
-        this.uid = uid;
+    public void setid(Long id) {
+        this.id = id;
+    }
+
+    public Integer getDeptId() {
+        return deptId;
+    }
+
+    public void setDeptId(Integer deptId) {
+        this.deptId = deptId;
     }
 
     public String getUsername() {
@@ -100,18 +109,19 @@ public class User extends BaseEntity implements Serializable {
         if (o == null || getClass() != o.getClass()) return false;
         if (!super.equals(o)) return false;
         User user = (User) o;
-        return Objects.equals(uid, user.uid) && Objects.equals(username, user.username) && Objects.equals(fullName, user.fullName) && Objects.equals(password, user.password) && Objects.equals(phone, user.phone) && Objects.equals(email, user.email) && gender == user.gender && Objects.equals(isDelete, user.isDelete) && Objects.equals(lang, user.lang);
+        return Objects.equals(id, user.id) && Objects.equals(deptId, user.deptId) && Objects.equals(username, user.username) && Objects.equals(fullName, user.fullName) && Objects.equals(password, user.password) && Objects.equals(phone, user.phone) && Objects.equals(email, user.email) && gender == user.gender && Objects.equals(isDelete, user.isDelete) && Objects.equals(lang, user.lang);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(super.hashCode(), uid, username, fullName, password, phone, email, gender, isDelete, lang);
+        return Objects.hash(super.hashCode(), id, deptId, username, fullName, password, phone, email, gender, isDelete, lang);
     }
 
     @Override
     public String toString() {
         return "User{" +
-                "uid=" + uid +
+                "id=" + id +
+                ", deptId=" + deptId +
                 ", username='" + username + '\'' +
                 ", fullName='" + fullName + '\'' +
                 ", password='" + password + '\'' +

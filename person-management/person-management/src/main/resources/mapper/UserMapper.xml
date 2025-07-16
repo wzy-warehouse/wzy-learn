@@ -5,7 +5,7 @@
 <mapper namespace="cn.com.wzy.web.management.mapper.UserMapper">
     <!-- 自定义映射规则 -->
     <resultMap id="UserEntityMap" type="cn.com.wzy.web.management.entity.User">
-        <id column="uid" property="uid"/>
+        <id column="id" property="id"/>
         <result column="is_delete" property="isDelete"/>
         <result column="create_user" property="createUser"/>
         <result column="create_time" property="createTime"/>
@@ -14,7 +14,7 @@
     </resultMap>
 
     <!-- 插入用户的数据 -->
-    <insert id="insertUser" useGeneratedKeys="true" keyProperty="uid">
+    <insert id="insertUser" useGeneratedKeys="true" keyProperty="id">
         INSERT INTO t_user (
             username,
             password,
@@ -46,7 +46,7 @@
     <!-- 根据用户名查询用户 -->
     <select id="findByUsername" resultMap="UserEntityMap">
         SELECT
-            uid,
+            id,
             username,
             password,
             full_name,

@@ -82,7 +82,7 @@ public class UserServiceImpl implements IUserService {
 
         // 设置返回值
         User userInfo = new User();
-        userInfo.setUid(tempUser.getUid());
+        userInfo.setid(tempUser.getid());
         userInfo.setUsername(tempUser.getUsername());
         userInfo.setFullName(tempUser.getFullName());
 

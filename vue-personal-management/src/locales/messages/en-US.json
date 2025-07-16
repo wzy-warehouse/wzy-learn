@@ -46,5 +46,8 @@
     "register": {
       "text": "Register"
     }
+  },
+  "route": {
+    "layout": "Home Page"
   }
 }

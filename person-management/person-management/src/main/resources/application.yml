@@ -8,7 +8,7 @@ spring:
     url: jdbc:mysql://192.168.2.100:3306/person-management?useUnicode=true&characterEncoding=utf8&zeroDateTimeBehavior=convertToNull&useSSL=true&serverTimezone=GMT%2B8
     username: wzy
     password: wzy@123
-    druid:
+    drid:
       # 初始连接数
       initialSize: 5
       # 最小连接池数量
@@ -37,14 +37,14 @@ spring:
         enabled: true
         # 设置白名单，不填则允许所有访问
         allow:
-        url-pattern: /druid/*
+        url-pattern: /drid/*
         # 控制台管理用户名和密码
         login-username: admin
         login-password: admin
       web-stat-filter:
         enabled: true
         url-pattern: /*
-        exclusions: "*.js,*.gif,*.jpg,*.png,*.css,*.ico,/druid/*"
+        exclusions: "*.js,*.gif,*.jpg,*.png,*.css,*.ico,/drid/*"
   # redis
   data:
     redis:
@@ -103,7 +103,7 @@ sa-token:
   is-concurrent: false
   # 在多人登录同一账号时，是否共用一个 token （为 true 时所有登录共用一个 token, 为 false 时每次登录新建一个 token）
   is-share: false
-  # token 风格（默认可取值：uuid、simple-uuid、random-32、random-64、random-128、tik）
-  token-style: uuid
+  # token 风格（默认可取值：uid、simple-uid、random-32、random-64、random-128、tik）
+  token-style: uid
   # 是否输出操作日志
   is-log: false

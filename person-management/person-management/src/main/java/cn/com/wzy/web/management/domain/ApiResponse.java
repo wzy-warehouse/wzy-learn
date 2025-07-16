@@ -11,7 +11,7 @@ import java.util.Map;
  * @param <T> 响应数据的类型
  */
 public class ApiResponse<T> implements Serializable {
-    private static final long serialVersionUID = 1L;
+    private static final long serialVersionid = 1L;
 
     // 状态码
     private int code;

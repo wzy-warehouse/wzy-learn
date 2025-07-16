@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.com.wzy.web.management.mapper.MenuMapper">
+    <!-- 自定义映射 -->
+    <resultMap id="MenuEntityMap" type="cn.com.wzy.web.management.entity.Menu">
+        <id column="menu_id" property="menuId" />
+        <result column="menu_id" property="menuId" />
+        <result column="parent_id" property="parentId" />
+        <result column="order_num" property="orderNum" />
+        <result column="route_name" property="routeName" />
+        <result column="is_frame" property="isFrame" />
+        <result column="menu_type" property="menuType" />
+        <result column="create_user" property="createUser"/>
+        <result column="create_time" property="createTime"/>
+        <result column="modified_user" property="modifiedUser"/>
+        <result column="modified_time" property="modifiedTime"/>
+    </resultMap>
+
+    <!-- 获取全部菜单 -->
+    <select id="queryAllMenus" resultMap="MenuEntityMap">
+        SELECT
+            menu_id,
+            menu_name,
+            parent_id,
+            order_num,
+            path,
+            component,
+            query,
+            route_name,
+            is_frame,
+            menu_type,
+            visible,
+            status,
+            perms,
+            icon,
+            create_user,
+            create_time,
+            modified_user,
+            modified_time
+        FROM t_menu
+        ORDER BY parent_id, order_num
+    </select>
+</mapper>
